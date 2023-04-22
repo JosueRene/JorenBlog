@@ -19,7 +19,8 @@
         <img class="navbar-brand" src="{% static 'image/logo.png' %}" style="height: 60px; ">
 
         <div class="right">
-            <a href="#" class="btn btn-secondary"> New Post </a>
+            <a href="{% url 'home' %}" class="text-muted pr-3"> Home </a>
+            <a href="{% url 'post:new' %}" class="btn btn-secondary"> New Post </a>
             <a href="{% url 'logout' %}" class="btn btn-danger"> Logout</a>
         </div>
         </div>
