@@ -1,0 +1,38 @@
+{% extends 'authenticate/base.html' %}
+
+{% block title %} Signup {% endblock %}
+
+{% block content %}
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-md-4">
+           {% load static %}
+           <img src="{% static 'image/logo.png' %}" class="mt-5 pt-5">
+        </div>
+
+        <div class="col-md-8  text-center">
+            <form action="." method="post"> 
+                <h1 style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> Signup Here </h1>
+
+                {% csrf_token %}
+               {{ form.username }}
+               {{ form.email }}
+               {{ form.password1 }}
+               {{ form.password2 }}
+
+               {% if form.errors or form.non_field_errors %}
+                    <div class="container-fluid bg-danger">
+                        {% for field in form %}
+                            {{ field.errors }}
+                        {% endfor %}
+                        {{ form.non_field_errors }}
+                    </div>
+               {% endif %} 
+
+               <button class="btn container-fluid" style="background-color: brown; height: 40px;"> SignUp </button>
+            </form>
+        </div>
+
+    </div>
+</div>
+{% endblock %}

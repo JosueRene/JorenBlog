@@ -1,0 +1,7 @@
+.banner{
+    width: 100%;
+    height: 80vh;
+    background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),url('../image/happy-women.jpg');
+    background-size: cover;
+    background-position: 100%;
+}

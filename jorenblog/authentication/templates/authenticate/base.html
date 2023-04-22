@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {% block title %}  {% endblock %} | JorenBlog</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    {% if request.user.is_authenticated %}
+    <div class="navbar bg-light top-sticky">
+        <div class="container">
+        {% load static %}
+        <img class="navbar-brand" src="{% static 'image/logo.png' %}" style="height: 60px; ">
+
+        <div class="right">
+            <a href="#" class="btn btn-secondary"> New Post </a>
+            <a href="{% url 'logout' %}" class="btn btn-danger"> Logout</a>
+        </div>
+        </div>
+    </div>
+    {% endif %}
+    {% block content %}
+
+    {% endblock%}
+</body>
+</html>

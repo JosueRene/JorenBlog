@@ -1,0 +1,36 @@
+{% extends 'authenticate/base.html' %}
+
+{% block title %} Home {% endblock %}
+
+{% block content %}
+
+<div class="banner">
+    <div class="container pt-5 text-center">
+        <h2 class="text-light pt-5" style="letter-spacing: 1px;"> Enjoy And Spread Hot News With EveryOne For Free!!</h2>
+        <p style="padding-left: 13%; width: 80%; color:whitesmoke; font-size: 1.2rem; letter-spacing: 1px; font-weight: 200;"> We have been sharing news worldwidely from innumerable news-magazines and people with fundamentally a lot of suitability and reliability.  </p>
+        <a href="#" class="btn btn-danger" style="font-weight: 200;"> Buy Coffee to the Developer</a>
+    </div>
+</div>
+
+<div class="container text-center pb-5">
+    <h1> Recent Trending News </h1>
+
+    <div class="row mt-5">
+        {% for post in posts %}
+            <div class="col-md-4">
+
+                <div class="card mb-5">
+                    <div class="card-body">
+                     <h4 class="card-title"> {{ post.title }} </h4>
+                     <p class="card-text"> {{ post.created_at }} </p>
+                     <hr>
+                     <a href="{% url 'post:detail' post.id %}" class="btn btn-danger btn-md"> Read Now </a>
+                    </div>
+                </div>
+
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
