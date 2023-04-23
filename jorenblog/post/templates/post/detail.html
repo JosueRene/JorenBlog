@@ -9,8 +9,14 @@
       <p class="text-muted"> Published on: {{ post.created_at }} by {{ post.created_by }} </p>
       <p> {{ post.description }} </p>
 
+      {% if request.user == post.created_by %}
+      <p class="text-muted pt-5"> This is your Post</p>
+      <a href="{% url 'post:edit' post.id %}" class="btn btn-secondary"> Update </a>
+      <a href="{% url 'post:delete' post.id %}" class="btn btn-danger"> Delete </a>
+      {% else %}
       <a href="#" class="btn btn-danger" style="font-size: 1.2rem;"> 👍 </a>
       <a href="#" class="btn btn-secondary" style="font-size: 1.2rem;"> 👎 </a>
+      {% endif %}
       <p></p>
       
   </div>

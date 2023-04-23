@@ -1,0 +1,35 @@
+{% extends 'authenticate/base.html' %}
+
+{% block title %} Dashboard {% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <h2 class="text-muted pt-3 pb-3 text-center"> Your Posts</h2>
+    <div class="row mt-5">
+    {% if posts %}
+    {% for post in posts %}
+    <div class="col-md-4">
+
+        <div class="card mb-5">
+            <div class="card-body">
+             <h4 class="card-title"> {{ post.title }} </h4>
+             <p class="card-text"> {{ post.created_at }} </p>
+             <hr>
+             <a href="{% url 'post:detail' post.id %}" class="btn btn-danger btn-md"> Read Now </a>
+            </div>
+        </div>
+
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="container-fluid text-center">
+        <p class="text-muted"> Sorry, you've got no post yet! Click Here to Create One.</p>
+        <a href="{% url 'post:new' %}" class="btn btn-danger"> New Post </a>
+    </div>
+    {% endif %}
+    </div>
+</div>
+
+
+{% endblock %}
