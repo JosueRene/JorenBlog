@@ -31,5 +31,39 @@
     {% block content %}
 
     {% endblock%}
+
+    {% if request.user.is_authenticated %}
+        <div class="footer bg-light">
+           <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+
+                    <ul class="nav flex-column ml-3 pb-3">
+                        <p class="text-muted pt-4">Quick Links! </p>
+                        <li class="nav-item">
+                          <a href="{% url 'home' %}" class="nav-link bg-light text-danger"> Home </a>
+                          <a href="{% url 'post:dashboard' %}" class="nav-link bg-light text-danger"> Dashboard </a>
+                          <a href="{% url 'post:new' %}" class="nav-link bg-light text-danger"> New Post </a>
+                          <a href="{% url 'logout' %}" class="nav-link bg-light text-danger"> Logout </a>
+                        </li>
+                    </ul> 
+
+                </div>
+
+                <div class="col-md-6">
+                    <ul class="nav flex-column ml-3 pb-3 text-center">
+                        <p class="text-muted pt-4"> Contact Us: </p>
+                        <li class="nav-link"> 
+                            <a href="#" class="nav-link text-danger"> Email: renegithub446@gmail.com </a>
+                            <a href="#" class="nav-link text-danger"> Phone: +250 788217517 </a>
+                            <a href="#" class="nav-link text-danger"> Instagram: Josue Rene </a>
+                            <a href="#" class="nav-link text-danger"> Facebook: Josue Rene </a>
+                        </li>
+                    </ul>
+                </div>
+              </div>
+           </div>
+        </div>
+    {% endif %}
 </body>
 </html>
